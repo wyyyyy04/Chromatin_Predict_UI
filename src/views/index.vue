@@ -296,7 +296,7 @@ export default {
       if (!this.accChartInstance) this.accChartInstance = echarts.init(document.getElementById('accChart'));
       this.accChartInstance.setOption({
         series: [{
-          type: 'gauge', startAngle: 200, endAngle: -200, min: 0, max: 100, radius: '95%', center: ['50%', '55%'],
+          type: 'gauge', startAngle: 225, endAngle: -45, min: 0, max: 100, radius: '95%', center: ['50%', '55%'],
           axisLine: { lineStyle: { width: 10, color: [[0.4, '#ef4444'], [0.75, '#f59e0b'], [1, '#10b981']] } },
           pointer: { width: 4, itemStyle: { color: '#1e293b' } },
           progress: { show: true, width: 10 },
