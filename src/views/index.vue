@@ -67,7 +67,7 @@
             <span class="card-title"><i class="el-icon-s-data"></i> 染色质空间互作分析队列</span>
             <el-tag size="mini" type="success" style="float: right">并发正常</el-tag>
           </div>
-          <el-table :data="recentResults" style="width: 100%" size="small" border stripe>
+          <el-table :data="recentResults" style="width: 100%" size="small" border>
             <el-table-column prop="jobId" label="任务 ID" width="105"></el-table-column>
             <el-table-column prop="cellLine" label="细胞系" width="75"></el-table-column>
             <el-table-column prop="motif" label="关键 Motif" width="90"></el-table-column>
