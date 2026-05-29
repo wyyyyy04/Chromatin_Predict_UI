@@ -262,15 +262,19 @@ export default {
 
 .cyber-grid {
   margin-bottom: -16px;
+  align-items: stretch !important;
 }
 
 .cyber-col {
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* 媲美参考图的赛博磨砂玻璃卡片 */
 .cyber-panel-card {
   position: relative;
+  flex: 1 1 auto;
   background: rgba(4, 22, 54, 0.65);
   border: 1px solid rgba(0, 153, 255, 0.32);
   border-radius: 4px;
