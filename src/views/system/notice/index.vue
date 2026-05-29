@@ -9,7 +9,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="操作人员" prop="createBy">
+      <el-form-item label="操作人员" prop="createBy" v-if="isAdmin">
         <el-input
           v-model="queryParams.createBy"
           placeholder="请输入操作人员"
@@ -87,13 +87,13 @@
           <dict-tag :options="dict.type.sys_notice_status" :value="scope.row.status"/>
         </template>
       </el-table-column>
-      <el-table-column label="创建者" align="center" prop="createBy" width="100" />
+      <el-table-column label="创建者" align="center" prop="createBy" width="100" v-if="isAdmin" />
       <el-table-column label="创建时间" align="center" prop="createTime" width="100">
         <template slot-scope="scope">
           <span>{{ parseTime(scope.row.createTime, '{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" class-name="small-padding fixed-width" v-if="isAdmin">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -182,11 +182,17 @@
 import NoticeDetailView from "@/layout/components/HeaderNotice/DetailView"
 import ReadUsersDialog from "./ReadUsers"
 import { listNotice, getNotice, delNotice, addNotice, updateNotice } from "@/api/system/notice"
+import { checkRole } from "@/utils/permission"
 
 export default {
   name: "Notice",
   components: { NoticeDetailView, ReadUsersDialog },
   dicts: ['sys_notice_status', 'sys_notice_type'],
+  computed: {
+    isAdmin() {
+      return checkRole(['admin'])
+    }
+  },
   data() {
     return {
       // 遮罩层
